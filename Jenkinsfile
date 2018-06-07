@@ -12,8 +12,17 @@ pipeline {
       }
     }
     stage('report') {
-      steps {
-        junit 'target/surefire-reports/*.xml'
+      parallel {
+        stage('report') {
+          steps {
+            junit 'target/surefire-reports/*.xml'
+          }
+        }
+        stage('convage') {
+          steps {
+            cobertura(coberturaReportFile: 'target/site/cobertura/coverage.xm')
+          }
+        }
       }
     }
   }
