@@ -11,6 +11,11 @@ pipeline {
         sh 'mvn cobertura:cobertura test'
       }
     }
+    stage('report') {
+      steps {
+        junit 'target/site/cobertura/coverage.xml'
+      }
+    }
   }
   post {
     always {
