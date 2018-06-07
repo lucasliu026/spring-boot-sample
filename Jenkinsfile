@@ -13,7 +13,7 @@ pipeline {
     }
     stage('report') {
       steps {
-        junit 'target/site/cobertura/coverage.xml'
+        junit 'target/surefire-reports/*.xml'
       }
     }
   }
