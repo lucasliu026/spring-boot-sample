@@ -20,7 +20,7 @@ pipeline {
         }
         stage('convage') {
           steps {
-            cobertura(coberturaReportFile: 'target/site/cobertura/coverage.xm')
+            cobertura(coberturaReportFile: 'target/site/cobertura/coverage.xml')
           }
         }
       }
